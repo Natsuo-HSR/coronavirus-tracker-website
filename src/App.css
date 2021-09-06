@@ -1,0 +1,401 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+}
+
+
+#chart_anchor, #table_anchor {
+  position: relative;
+  top: -50px;
+}
+
+.header {
+  border-bottom: 2px solid #e60648;
+  background-color: #fff;
+  /* background-color: #9d3a33; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  z-index: 99;
+}
+
+
+.header_container {
+  position: relative;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+
+
+
+.burger {
+  display: inline;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+}
+
+/* hidden input for animation */
+.burger .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+/* move top on click */
+.burger .toggler:checked + .burger_view > span {
+  transform: rotate(135deg);
+}
+
+/* cross line into X */
+.burger .toggler:checked + .burger_view > span:before,
+.burger .toggler:checked + .burger_view > span:after {
+  transition: all .2s ease;
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* rotate X when on hover */
+.burger .toggler:checked:hover + .burger_view > span {
+  transform: rotate(225deg);
+}
+
+/* show menu  */
+.burger .toggler:checked ~ .burger_nav {
+  left: 0;
+}
+
+
+/* burger itself-container */
+.burger .burger_view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 60px;
+  height: inherit;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+/* burger-lines */
+.burger .burger_view > span {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background-color: #e60648;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* for animation */
+  transition: all .2s ease-in-out ;
+}
+
+/* top and bottom lines */
+.burger .burger_view > span:before,
+.burger .burger_view > span:after {
+  content: '';
+  position: absolute;
+  z-index: 40;
+  top: -10px;
+  width: 100%;
+  height: 3px;
+  background-color: inherit;
+  border-radius: 3px;
+}
+
+/* bottom line move down */
+.burger .burger_view > span:after {
+  top: 10px;
+}
+
+
+/* deleting style */
+a {
+  color: #202333;
+  text-decoration: none;
+}
+a:visited {
+  color: #202333;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+
+/* nav menu */
+.burger_nav {
+  position: absolute;
+  top: 0;
+  left: -300px; 
+  width: 300px;
+  box-sizing: border-box;
+  padding-top: 70px;
+  display: flex;
+  height: 100vw;
+  background-color: #fff;
+  z-index: 5;
+  padding-left: 20px;
+  transition: left .2s;
+  border-right: 1px solid #e60648;
+}
+
+.menu_item {
+  color: #202333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+.header_logo {
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.header_title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #e60648;
+  margin-left: -32px;
+}
+
+.h_black {
+  color: #000;
+}
+
+
+
+/* GENERAL */
+
+
+.main_container {
+  width: 80%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #202333;
+}
+
+
+
+
+/* SHORT STATISTIC */
+
+.stat {
+  margin-top: 80px;
+}
+
+.stat_title {
+  text-align: center;
+  color: #202333;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.stat_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-top: 16px;
+}
+
+.stat_infected, .stat_dead, .stat_cured {
+  display: flex;
+  color: #202333;
+}
+
+.stat_infected, .stat_dead {
+  margin-right: 50px;
+}
+
+.infected_numbers, .dead_numbers, .cured_numbers {
+  display: flex;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.infected_numbers {
+  color: #CF000F;
+}
+
+.dead_numbers {
+  color: #25373D;
+}
+
+.cured_numbers {
+  color: #44bd32;
+}
+
+.new_infected, .new_dead, .new_cured {
+  line-height: 10px;
+  font-size: 20px;
+  margin-left: 2px;
+  color: #ff7a18;
+}
+
+
+
+/* MAP */
+
+.covid_map {
+  margin-top: 30px;
+}
+
+/* .map_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+.map {
+  border: 2px solid #202333;
+  width: 90%;
+  height: auto;
+}
+
+
+
+/* CHART */
+
+.charts {
+  margin-top: 30px;
+}
+
+.chart_params {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+
+
+.params_text > select {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin-left: 9px;
+}
+
+.params_text:nth-child(1) > select {
+  margin-right: 20px;
+}
+
+
+/* TABLE */
+
+.covid_table {
+  margin-top: 30px;
+}
+
+/* .table_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+
+.table {
+  border-spacing: 0;
+  border: 2px solid #202333;
+  width: 90%;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th, td {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid #202333;
+  border-right: 1px solid #202333;
+}
+
+th {
+  color: #222222;
+  background: #DFDFDf;
+  text-align: left;
+  font-size: 20px;
+}
+
+tr {
+  font-size: 18px;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+td:nth-child(3) {
+  background: #FFEEAA;
+}
+
+td:nth-child(5) {
+  background: #ffe2e0;
+}
+
+td:nth-child(7) {
+  background: #c8e6c9;
+}
+
+
+
+/* FOOTER */
+.footer {
+  margin-top: 40px;
+  border-top: 1px solid #e60648;
+}
+
+.footer_text {
+  padding: 20px 0 20px 20px;
+}
+.footer_text a {
+  color: blue;
+}
